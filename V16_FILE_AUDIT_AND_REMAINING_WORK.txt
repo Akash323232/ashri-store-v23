@@ -1,0 +1,45 @@
+ASHRI VENTURES — V16 FILE AUDIT & REMAINING WORK
+Date: 2026-10-27
+Base: V15 Affiliate Income Admin & Member Reports ZIP
+
+CHECKS COMPLETED
+- Enumerated all 44 ZIP entries.
+- Reviewed public index.html, register.html, login.html, Admin settings/reports pages, Member dashboard/services pages and associated scripts.
+- Ran Node.js syntax check on all 13 JavaScript files; all passed.
+- Fixed duplicate Member Login in public navbar.
+- Simplified public navbar by combining New Services / Affiliate Income / Security Fund navigation into one Services anchor (the page still has its sections below).
+- Removed direct "Admin Member Setup" link from public registration page.
+- Added this audit report.
+
+FEATURES FOUND IN FILES (FRONTEND/LOCAL DEMO)
+- Public homepage sections/anchors for How It Works, Business Plan, Membership, Services, Affiliate Income, Security Fund, FAQs, Contact.
+- Login and registration forms explicitly described as local demo.
+- Member dashboard sections include overview, invoices, shopping, BV ledger, membership, levels, team, vouchers, profile, bank details, notifications, support.
+- Member services page includes affiliate/family support UI and demo referral link/calculator.
+- Admin settings page links to affiliate/family settings and affiliate reports.
+- Affiliate report JS reads/writes localStorage key ashriAffiliateIncomeLedgerV1.
+- Commission settings JS reads/writes localStorage key ashriAffiliateFamilyPolicyV1.
+- Member report filters by referral code entered/default AV-DEMO-001.
+- Duplicate order reference prevention is only within the browser-local demo ledger.
+
+IMPORTANT LIMITATIONS / WORK STILL REQUIRED BEFORE REAL LAUNCH
+1. No production backend/database or secure server-side role enforcement is evidenced in this static ZIP.
+2. localStorage data belongs to one browser profile/device; it is not shared across users or Admin devices.
+3. Login/register are local demo, not OTP-verified or secure server sessions.
+4. Affiliate records are manually entered demo rows, not automatically created from verified orders/payment/refund events.
+5. Referral code ownership is not server-verified; a member can type a different code in the demo report UI.
+6. Admin approval/rejection and payout workflow need backend validation, immutable audit logs, and access controls.
+7. Family Support applications/fund contributions require a server-side case queue, document access controls, policy disclosures, fund reconciliation, and legal review before collecting real money.
+8. The registration page still has a "local demo" message and a dashboard shortcut; protect all admin/member routes on server in production.
+9. Public navigation layout was visually inspected from a screenshot only; full browser/device testing has not been completed.
+10. No production deployment was performed.
+
+NEXT REQUIRED IMPLEMENTATION
+- Build a backend (e.g. Node/Express) with a database and hashed passwords/secure sessions.
+- Define roles: Admin and Member; enforce authorization server-side on every admin/API route.
+- Store affiliate policy in database; create referral attribution at registration and verified order checkout.
+- Generate commission only from paid, eligible net sales; handle returns/refunds and hold period.
+- Admin commission ledger with approve/reject/reversal, payout reference and audit trail.
+- Member-only report derived server-side from the authenticated member ID; never trust a typed referral code for private report access.
+- Family Support request queue with statuses, eligibility, evidence access controls, and clear non-guarantee terms.
+- Add automated tests and test on local server and deployed site.

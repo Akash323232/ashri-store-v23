@@ -1,0 +1,18 @@
+V20 BUSINESS PLAN BUILDER
+
+Added:
+- Admin business plan package creation and update APIs.
+- Admin level/reward configuration API.
+- Public price calculator API using base price + GST.
+- Admin UI at /admin-preview/business-plans.html.
+- PostgreSQL tables for packages and levels.
+- Default package rows: Free ID, Starter (₹1,000 base), Business (₹25,000 base), each with 18% GST defaults.
+- Free package level names include L1-L5, L6 Defender, L7 Villa. Rewards are unset by default and require deliberate Admin configuration.
+
+Price examples:
+₹1,000 + 18% GST = ₹1,180
+₹25,000 + 18% GST = ₹29,500
+
+Validation performed: JavaScript syntax checks and existing unit tests.
+Not performed: live PostgreSQL migration, logged-in browser E2E, real customer checkout, legal review.
+Important: Do not advertise guaranteed income or guaranteed prizes. Ensure all rewards are lawful and funded by genuine product/service sales, not recruitment fees.

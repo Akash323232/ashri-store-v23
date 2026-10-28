@@ -1,0 +1,25 @@
+ASHRI VENTURES V17 — BACKEND SECURITY MVP
+
+Implemented in this build:
+- Added Node.js/Express backend and PostgreSQL schema/migration.
+- Added password-hashed registration, login, PostgreSQL-backed server sessions, logout, rate limits and server-side guards for /admin-preview and /member routes.
+- Registration creates pending member accounts; login is blocked until Admin activation.
+- Added Admin API for member status activation/suspension and a Secure Server Console UI.
+- Added server-backed affiliate commission policy settings and Admin/Member reports.
+- Added unique order_ref and unique commission_ledger.order_id constraints.
+- Added a protected internal verified-paid-order endpoint that checks referral-code ownership against an active member and generates one pending commission using the active policy. Duplicate order references are rejected.
+- Added server-backed Family Support application submission, member-only application list and Admin review/decision endpoints/UI.
+- Added commission calculation unit tests and setup documentation.
+
+Checks run in this environment:
+- Node syntax check across JavaScript files: PASS.
+- Commission unit tests: 5/5 PASS.
+- ZIP/archive integrity: will be checked after packaging.
+
+Not yet verified / remaining before production:
+- Database-backed integration tests were not run because no PostgreSQL instance/.env was configured in this environment.
+- Browser end-to-end tests were not run.
+- Payment provider webhook signature verification and checkout integration must be implemented/configured; the internal shared-secret endpoint alone is not a complete gateway integration.
+- Real refunds, payout provider/reconciliation, secure document uploads, password reset/OTP/email verification, CSRF protection, and formal Family Support fund ledger remain to be implemented/reviewed.
+- Legacy BV, invoice, bank detail, voucher and other dashboard widgets may still be demo/localStorage workflows.
+- Do not use production member/bank/support data until a full security review and end-to-end test is complete.

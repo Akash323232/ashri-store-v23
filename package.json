@@ -1,0 +1,28 @@
+{
+  "name": "ashri-ventures-platform",
+  "version": "23.0.0",
+  "private": true,
+  "description": "Ashri Ventures registration/login API wiring and member portal",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test tests/*.test.js",
+    "db:migrate": "node server/migrate.js",
+    "db:migrate:utility": "node server/migrate-v22-utility.js",
+    "db:migrate:whatsapp": "node server/migrate-utility-whatsapp.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "pg": "^8.13.1"
+  }
+}

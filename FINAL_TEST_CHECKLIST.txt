@@ -1,0 +1,72 @@
+ASHRI VENTURES V10 FINAL MASTER TEST CHECKLIST
+
+Use Chrome/Edge, same browser profile for every page. This is a local demo; do not enter real personal or financial data.
+
+[ ] 1. Open admin-preview/settings.html
+[ ] 2. Create a test member ID and note the ID
+[ ] 3. Export test members CSV
+[ ] 4. Open register.html and register a different test mobile; confirm new ID appears
+[ ] 5. Try duplicate mobile; should be blocked
+[ ] 5a. Test login.html with matching ID/mobile; wrong pair should fail
+[ ] 6. Change hero headline/support email and save
+[ ] 7. Open index.html and refresh; confirm changed text appears
+[ ] 8. Upload a small test logo/banner under 700 KB, save, refresh index.html
+[ ] 9. Set social links to test URLs; refresh site and confirm footer links
+[ ] 10. Keep public bank display OFF; test only placeholders if checking display
+[ ] 11. Change demo point rate/min/max/daily limit and save
+[ ] 12. Open member/index.html, test point transfer request; open admin-preview/index.html and review it
+[ ] 13. Submit test invoice in member dashboard; review in admin preview
+[ ] 14. Export audit/transfer CSVs
+[ ] 15. Test mobile layout at narrow browser width
+
+KNOWN LIMITATIONS
+- No real backend, secure authentication, OTP, server database, server file upload, real payout, actual cash redemption or real investment collection.
+- Data is browser localStorage and may be cleared/edited; it does not sync across devices.
+- Do not deploy this static demo for public customer onboarding.
+
+
+V9 ADDITIONAL TESTS
+[ ] Check logo is fully visible on home, admin, settings and mobile widths.
+[ ] Open member/services.html in same localhost browser profile.
+[ ] Save a test member profile and verify the message.
+[ ] Submit point transfer request; confirm it stays Pending and does not move balance.
+[ ] Submit deposit/withdrawal/refund test request; verify Admin Operations Desk sees it.
+[ ] Create a support ticket, reply in Admin Operations Desk, set status to Resolved.
+[ ] Generate and print/Save-as-PDF the demo Welcome Letter.
+[ ] Export requests/tickets/member CSVs.
+[ ] Confirm no real bank details or personal sensitive data are used.
+
+[ ] Member Services > My Bank Details: save fake test beneficiary details; confirm account mismatch is blocked; verify masked display; clear saved details.
+[ ] Confirm no real bank details are entered in this browser-only demo.
+
+
+V12 additions to test:
+[ ] Home page navigation: New Services / Affiliate Income / Security Fund.
+[ ] Affiliate calculator: percentage mode and fixed amount mode update result.
+[ ] Responsive service cards on mobile and desktop.
+[ ] Logo/banner asset paths load after deploying the whole folder, including assets/.
+[ ] Member login/register and dashboard links route correctly.
+[ ] Confirm every page refresh works on Netlify.
+[ ] Do not use this static demo for real user data or payments.
+[ ] Backend, database, secure auth, affiliate tracking and fund administration remain separate development tasks.
+
+
+V13 FRONTEND NAVIGATION UPDATE
+- Public front website navigation contains public sections plus Member Login and Register only; Admin Setup and Member Services links were removed from public navigation/footer.
+- Member Dashboard now has a visible Logout button that returns to the login page (demo-only behavior).
+- This is still a static demo: logout is not server-side session revocation and login is not secure authentication. Backend/API/database and protected admin routes are still required before public production use.
+
+
+V15 Affiliate Reports checks:
+- Open Admin Site & Member Setup > Affiliate Reports.
+- Add a demo sale with referral code AV-DEMO-001 and test order reference; confirm summary/table update.
+- Export CSV and confirm report downloads.
+- Open Member Services in the same browser profile; set referral code to match and confirm row appears.
+- Change code to another value and confirm report filters.
+- Reminder: localStorage report is demo-only; no server validation or payouts.
+
+
+V16 AUDIT FIX (2026-10-27)
+- Public navbar duplicate Member Login link removed; related navigation grouped under Services anchor.
+- Public registration page no longer links directly to Admin Member Setup.
+- See V16_FILE_AUDIT_AND_REMAINING_WORK.txt for inspected files, JavaScript syntax-check results, demo limitations and production work remaining.

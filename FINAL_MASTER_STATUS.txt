@@ -1,0 +1,37 @@
+ASHRI VENTURES FINAL MASTER V21 — STATUS
+
+Includes cumulative V20 source plus V21 planning improvements.
+V21 addition: Admin Business Plan Builder sales/commission/reward-fund unit economics simulator.
+Existing plan settings support 7 configurable levels: First Level, Second Level, Third Level, Fourth Level, Fifth Level, Defender, Villa.
+Package price/GST, level configuration, and existing affiliate report/backend features remain from prior versions.
+
+PASSED:
+- Syntax check for admin-preview/business-plans.js
+- Syntax check for server/index.js
+- Commission unit tests: 5/5
+
+NOT VERIFIED:
+- PostgreSQL migration/integration with a configured database
+- Browser end-to-end testing of every admin control
+- Payment gateway signature verification, actual refund processing and payout reconciliation
+- Production security and legal/tax review
+
+Do not describe as production-ready until these checks pass. The simulator is a planning estimate and does not guarantee income.
+
+
+V22.3 UI/BRANDING UPDATE (2026-10-28)
+- Dedicated member pages: Profile & Account Services, My Business Points, Affiliate & Family Support, Recharge & Bill Payment.
+- Shared member sidebar/header/footer/logo injected by member/member-shell.js and styled by member/member-shell.css.
+- Premium package display corrected to ₹25,000 + proposed 18% GST = ₹29,500; Business Partner ₹1,000 + 18% GST = ₹1,180.
+- Utility page now fails closed if backend/API is unavailable; no fake local recharge transaction is created on the unavailable path.
+- Domain label planned: ashristore.com; purchase/DNS/hosting/SSL not performed.
+- Validation: JS syntax check clean; 15/15 Node tests pass. No live DB/provider/WhatsApp/payout E2E verification.
+
+
+V23 REGISTRATION/LOGIN FIX (2026-10-28)
+- Landing-page registration no longer creates/claims a local demo account; it routes to register.html with a temporary form draft.
+- register.js now POSTs to /api/auth/register; password is submitted only to backend over same-origin fetch and is not saved in browser storage.
+- login.js now matches login.html fields (identity/password) and POSTs to /api/auth/login.
+- Member login is allowed only after Admin activates the pending registration; this is expected server policy.
+- Test results: 20/20 Node tests passed; 34 JS files syntax-checked with zero errors.
+- PostgreSQL-backed registration/login and browser E2E were NOT run because no test DB credentials were available. Static preview on port 8080 does not run the Node API. Use Node backend port 5000 after .env/PostgreSQL setup.
